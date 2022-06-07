@@ -12,14 +12,14 @@ def select():
     return artists
 
 
-def select(id):
-    artist = []
-    sql = " SELECT * FROM artists WHERE id = %s"
-    values = [id]
-    result = run_sql(sql, values)[0]
-    if result is not None:
-        artist = Artist(result["artist_name"], result["id"])
-    return artist
+# def select(id):
+#     artist = []
+#     sql = " SELECT * FROM artists WHERE id = %s"
+#     values = [id]
+#     result = run_sql(sql, values)[0]
+#     if result is not None:
+#         artist = Artist(result["artist_name"], result["id"])
+#     return artist
 
 
 def save(artist):
@@ -31,6 +31,6 @@ def save(artist):
     return artist
 
 
-def delete_all():
-    sql = "DELETE FROM artists"
-    run_sql(sql)
+# def delete_all():
+#     sql = "DELETE FROM artists"
+#     run_sql(sql)
