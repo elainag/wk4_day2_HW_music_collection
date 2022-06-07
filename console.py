@@ -1,9 +1,9 @@
 import pdb
 from models.artist import Artist
 import repositories.artist_repository as artist_repository
+from models.album import Album
+import repositories.album_repository as album_repository
 
-
-pdb.set_trace()
 
 artist_1 = Artist("The Foals")
 artist_repository.save(artist_1)
@@ -11,5 +11,11 @@ artist_repository.save(artist_1)
 artist_2 = Artist("Rufus du sol")
 artist_repository.save(artist_2)
 
-# -- INSERT INTO albums ('What went down', 'Indie Rock')
-# -- INSERT INTO albums ('Bloom', 'Dance')
+
+album_1 = Album("What Went Down", "Inide Rock", artist_1)
+album_repository.save(album_1)
+
+album_2 = Album("Bloom", "Dance", artist_2)
+album_repository.save(album_2)
+
+pdb.set_trace()
