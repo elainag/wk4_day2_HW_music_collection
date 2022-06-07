@@ -19,8 +19,26 @@ album_2 = Album("Bloom", "Dance", artist_2)
 album_repository.save(album_2)
 
 
+delete_albums = album_repository.delete_all()
+
+delete_artists = artist_repository.delete_all()
+
+
+find_album = album_repository.select(7)
+
 all_albums = album_repository.select_all()
 for album in all_albums:
     print(album.__dict__)
+
+
+find_artist = artist_repository.select(1)
+
+all_artists = artist_repository.select_all()
+for artist in all_artists:
+    print(artist.__dict__)
+
+
+find_artists_albums = album_repository.list_albums_by_artist(1)
+
 
 pdb.set_trace()

@@ -1,3 +1,5 @@
+from re import S
+from tkinter.tix import Select
 from db.run_sql import run_sql
 
 from models.album import Album
@@ -41,7 +43,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         artist_id = result["artist_id"]
-        user = artist_repository.select(artist_id)
+        artist = artist_repository.select(artist_id)
         album = Album(
             result["title"],
             result["genre"],
@@ -54,3 +56,20 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM albums"
     run_sql(sql)
+
+
+def list_albums_by_artist(id):
+    albums = []
+    sql = "SELECT * albums WHERE artist_id = %s"
+    values = [id]
+    result = run_sql(sql, values)[::]
+    if result is not None:
+        artist_id = result["artist_id"]
+        artist = artist_repository.select(artist_id)
+        album = Album(
+            result["title"],
+            result["genre"],
+            artist,
+            result["id"],
+        )
+    return album

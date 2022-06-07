@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.artist import Artist
 
 
-def select():
+def select_all():
     artists = []
     sql = " SELECT * FROM artists"
     results = run_sql(sql)
@@ -31,6 +31,6 @@ def save(artist):
     return artist
 
 
-# def delete_all():
-#     sql = "DELETE FROM artists"
-#     run_sql(sql)
+def delete_all():
+    sql = "DELETE FROM artists"
+    run_sql(sql)
