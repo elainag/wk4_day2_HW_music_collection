@@ -4,7 +4,7 @@ from models.album import Album
 import repositories.artist_repository as artist_repository
 
 
-def select():
+def select_all():
     albums = []
 
     sql = "SELECT * FROM albums"

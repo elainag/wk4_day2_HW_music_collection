@@ -18,4 +18,9 @@ album_repository.save(album_1)
 album_2 = Album("Bloom", "Dance", artist_2)
 album_repository.save(album_2)
 
+
+all_albums = album_repository.select_all()
+for album in all_albums:
+    print(album.__dict__)
+
 pdb.set_trace()
