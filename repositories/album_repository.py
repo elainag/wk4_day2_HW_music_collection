@@ -23,6 +23,17 @@ def select():
     return albums
 
 
+def save(album):
+    sql = (
+        f"INSERT INTO albums (title, genre, artist_id) VALUES (%s, %s, %s) RETURNING id"
+    )
+    values = [album.title, album.genre, album.artist.id]
+    results = run_sql(sql, values)
+    id = results[0]["id"]
+    album.id = id
+    return album
+
+
 def select(id):
     album = None
     sql = "SELECT * FROM albums WHERE id = %s"
